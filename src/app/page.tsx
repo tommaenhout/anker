@@ -11,7 +11,6 @@ export default function Home() {
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
-    console.log(f);
     if (!f) return;
     setFile(f);
     const arrayBuffer = await f.arrayBuffer();
