@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔏 Blockchain Document Notarization MVP
 
-## Getting Started
+This is a minimal proof-of-concept app that lets you **upload any file**, generate a **SHA-256 hash**, and anchor that hash immutably on the **Polygon Amoy testnet** via a blockchain transaction.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Upload any file (PDF, image, etc.)
+- Client-side SHA-256 hashing
+- Submit the hash to the blockchain via the `data` field of a transaction
+- View the notarization on [Polygonscan Amoy](https://amoy.polygonscan.com)
+- Built with **Next.js App Router**, **TypeScript**, and **ethers.js**
+- Uses **Alchemy RPC** for Polygon Amoy network access
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 How it works
 
-## Learn More
+1. User uploads a document
+2. The app calculates its SHA-256 hash in the browser
+3. The hash is sent to the backend API route
+4. The backend signs and sends a transaction with the hash as `data`
+5. The transaction becomes a permanent, verifiable proof of the document’s existence
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧱 Project Vision (Ambition)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This MVP is the **first building block** in a larger vision:
 
-## Deploy on Vercel
+- ✅ **Verifiable multi-party signing** on-chain
+- ✅ A `/verify` endpoint where users can upload a file and check if it was notarized
+- ✅ **Account Abstraction (AA)** to allow document signing without requiring MetaMask
+  - Social login (email/passkey)
+  - Gas sponsorship
+  - Programmable smart accounts per user
+- ✅ Integration with e-signature APIs (e.g., DocuSign or SignRequest)
+- ✅ Optional NFT/certification layer for IP protection
+- ✅ Monetization via freemium SaaS or notarization API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
